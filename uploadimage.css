@@ -1,0 +1,223 @@
+:root {
+    --primary-green: #2d6a4f;
+    --text-dark: #1a3321;
+    --text-gray: #6b7280;
+    --bg-light: #f9fdfa;
+    --white: #ffffff;
+    --border-dashed: #2d6a4f;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+/* Upload Section Layout */
+.upload-section {
+    padding: 80px 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-height: 70vh;
+}
+
+.header-content h1 {
+    font-size: 40px;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.header-content p {
+    color: var(--text-gray);
+    font-size: 18px;
+    margin-bottom: 50px;
+}
+
+/* Drag and Drop Area */
+.drop-zone-container {
+    width: 100%;
+    max-width: 800px;
+    background: white;
+    border: 2px dashed var(--border-dashed);
+    border-radius: 24px;
+    padding: 60px 40px;
+    transition: 0.3s ease;
+}
+
+.upload-icon-circle {
+    width: 70px;
+    height: 70px;
+    background: #eef7f2;
+    color: var(--primary-green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    margin: 0 auto 20px;
+}
+
+.drop-inner h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.specs {
+    color: var(--text-gray);
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-upload {
+    background: var(--primary-green);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.btn-camera {
+    background: white;
+    border: 1px solid #e2e8f0;
+    color: var(--text-dark);
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+/* Footer Section Alignment */
+.footer {
+    padding: 80px 5% 40px;
+    background: white;
+    border-top: 1px solid #f1f5f9;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 60px;
+}
+
+.footer-col.brand .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--primary-green);
+    font-weight: 800;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.logo-box {
+    background: var(--primary-green);
+    color: white;
+    padding: 6px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.academic-text {
+    margin-top: 10px;
+    font-size: 14px;
+    color: var(--text-gray);
+}
+
+.footer-col h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.team ul {
+    list-style: none;
+}
+
+.team li {
+    color: var(--text-gray);
+    margin-bottom: 12px;
+    font-size: 15px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    background: #f0fdf4;
+    color: var(--primary-green);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.social-icons a:hover {
+    background: var(--primary-green);
+    color: white;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid #f1f5f9;
+    color: var(--text-gray);
+    font-size: 14px;
+}
+
+/* RESPONSIVE ALIGNMENT */
+@media (max-width: 1024px) {
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+    .footer-col.brand {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .upload-section { padding: 40px 5%; }
+    .drop-zone-container { padding: 40px 20px; }
+    
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .footer-col.brand { grid-column: span 1; }
+    .footer-col.brand .logo { justify-content: center; }
+    .social-icons { justify-content: center; }
+}
