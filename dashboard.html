@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Greenopedia</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar">
+    <div class="logo-container">
+        <div class="logo-box-gray">
+            <img src="Gemini_Generated_Image_tbdieatbdieatbdi.png" alt="Leaf Icon">
+        </div>
+        <span class="logo-text">Greenopedia</span>
+    </div>
+
+    <div class="nav-pill-container">
+        <a href="loginupload.html" class="nav-link">Identify Plant</a>
+        <a href="dashboard.html" class="nav-link active">Dashboard</a>
+        <a href="loginabout.html" class="nav-link">About</a>
+    </div>
+
+    <div class="nav-actions">
+        <button class="logout-btn-outline">Logout</button>
+    </div>
+</nav>
+
+    <main class="dashboard">
+        <div class="db-header">
+            <div class="title-group">
+                <h1>My Plant Dashboard</h1>
+                <p>Manage your plant collection and care schedule</p>
+            </div>
+            <button class="btn-primary-green"><i class="fa-solid fa-plus"></i> Identify New Plant</button>
+        </div>
+
+        <section class="stats-row">
+            <div class="stat-card">
+                <div class="stat-content">
+                    <span class="stat-label">Total Plants</span>
+                    <h2 id="total-plants">3</h2>
+                </div>
+                <div class="stat-icon leaf-bg"><i class="fa-solid fa-leaf"></i></div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-content">
+                    <span class="stat-label">Care Tasks</span>
+                    <h2 id="care-tasks">3</h2>
+                </div>
+                <div class="stat-icon cal-bg"><i class="fa-solid fa-calendar-days"></i></div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-content">
+                    <span class="stat-label">Identified</span>
+                    <h2 id="identified-count">2</h2>
+                </div>
+                <div class="stat-icon search-bg"><i class="fa-solid fa-magnifying-glass"></i></div>
+            </div>
+        </section>
+
+        <div class="main-layout">
+            <section class="plants-area">
+                <div class="section-header">
+                    <h2>My Plants</h2>
+                    <a href="#" class="view-all">View All</a>
+                </div>
+                <div class="plants-grid" id="plant-grid">
+                    <div class="plant-card">
+                        <div class="plant-image">
+                            <img src="fern-plant-green-leaves-tree-branches-green-background-4118x3432-9040.jpg" alt="Plant">
+                            <span class="status-badge">Healthy</span>
+                            <div class="plant-name-overlay">
+                                <h3>My Swiss Cheese</h3>
+                                <p>Monstera Deliciosa</p>
+                            </div>
+                        </div>
+                        <div class="plant-care-info">
+                            <div class="info-row"><span>Last watered:</span> <strong>2 days ago</strong></div>
+                            <div class="info-row"><span>Next watering:</span> <strong class="green-txt">In 5 days</strong></div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="remind-btn"><i class="fa-regular fa-bell"></i> Remind</button>
+                            <button class="delete-btn"><i class="fa-regular fa-trash-can"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="plant-card">
+                        <div class="plant-image">
+                            <img src="fern-plant-green-leaves-tree-branches-green-background-4118x3432-9040.jpg" alt="Plant">
+                            <span class="status-badge">Healthy</span>
+                            <div class="plant-name-overlay">
+                                <h3>Little Rosette</h3>
+                                <p>Succulent</p>
+                            </div>
+                        </div>
+                        <div class="plant-care-info">
+                            <div class="info-row"><span>Last watered:</span> <strong>1 week ago</strong></div>
+                            <div class="info-row"><span>Next watering:</span> <strong class="green-txt">In 10 days</strong></div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="remind-btn"><i class="fa-regular fa-bell"></i> Remind</button>
+                            <button class="delete-btn"><i class="fa-regular fa-trash-can"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <aside class="sidebar">
+                <div class="user-card">
+                    <div class="user-info">
+                        <div class="avatar"><i class="fa-regular fa-user"></i></div>
+                        <div>
+                            <h3 id="user-name">Om Gaikwad</h3>
+                            <p id="user-email">om.gaikwad@example.com</p>
+                        </div>
+                    </div>
+                    <button class="btn-outline">Edit Profile</button>
+                </div>
+
+                <div class="tasks-card">
+                    <div class="tasks-header">
+                        <i class="fa-regular fa-bell green-txt"></i>
+                        <h3>Upcoming Care Tasks</h3>
+                    </div>
+                    <div class="task-list">
+                        <div class="task-item">
+                            <div class="task-icon drop"><i class="fa-solid fa-droplet"></i></div>
+                            <div><strong>Water Monstera</strong><br><span>Tomorrow</span></div>
+                        </div>
+                        <div class="task-item">
+                            <div class="task-icon plant"><i class="fa-solid fa-seedling"></i></div>
+                            <div><strong>Fertilize Boston Fern</strong><br><span>In 3 days</span></div>
+                        </div>
+                        <div class="task-item">
+                            <div class="task-icon mist"><i class="fa-solid fa-cloud-rain"></i></div>
+                            <div><strong>Mist Fern</strong><br><span>Today</span></div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

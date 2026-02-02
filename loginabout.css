@@ -1,0 +1,319 @@
+:root {
+    --primary-green: #2d6a4f;
+    --text-dark: #1a3321;
+    --text-gray: #6b7280;
+    --bg-light: #f9fdfa;
+    --card-bg: #ffffff;
+    --border-soft: rgba(45, 106, 79, 0.1);
+}
+
+/* --- Base Alignment & Resets --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* --- After-Login Header (Navbar) --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 5%;
+    background: white;
+    border-bottom: 1px solid #f0f0f0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-box-gray {
+    background: #f0f0f0;
+    padding: 6px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-box-gray img {
+    height: 24px;
+    width: auto;
+}
+
+.logo-text {
+    color: var(--primary-green);
+    font-weight: 700;
+    font-size: 1.4rem;
+}
+
+.nav-pill-container {
+    display: flex;
+    background: #f1f8f5;
+    padding: 6px;
+    border-radius: 50px;
+    gap: 5px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #4a5568;
+    padding: 10px 24px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-link.active {
+    background: var(--primary-green);
+    color: white;
+    border-radius: 50px;
+}
+
+.logout-btn-outline {
+    background: white;
+    color: #1a1a1a;
+    border: 1px solid #e2e8f0;
+    padding: 10px 22px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* --- Scroll Reveal Animation --- */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.scroll-reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Hero Section --- */
+.about-hero {
+    position: relative;
+    height: 55vh;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+.hero-image-container {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -1;
+}
+
+.hero-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.5);
+}
+
+.hero-text-overlay {
+    padding: 0 20px;
+    max-width: 900px;
+}
+
+.badge {
+    display: inline-block;
+    background: #e8f5e9;
+    color: var(--primary-green);
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.hero-sub {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    opacity: 0.9;
+}
+
+/* --- Section Layouts --- */
+.section-container {
+    padding: 80px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.icon-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.icon-box {
+    background: #e8f5e9;
+    color: var(--primary-green);
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin: 0 auto 15px;
+}
+
+.content-card {
+    background: white;
+    padding: 40px;
+    border-radius: 24px;
+    border: 1px solid var(--border-soft);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.02);
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--text-gray);
+}
+
+/* --- Grid Alignment (Objectives & Value Cards) --- */
+.center-header { text-align: center; margin-bottom: 50px; }
+
+.objectives-grid, .value-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.obj-card, .value-card {
+    background: white;
+    padding: 35px;
+    border-radius: 20px;
+    border: 1px solid var(--border-soft);
+    transition: transform 0.3s ease;
+}
+
+.obj-card:hover { transform: translateY(-10px); }
+
+.obj-icon {
+    background: #e8f5e9;
+    color: var(--primary-green);
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* --- Features Grid --- */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 15px;
+}
+
+.feature-item {
+    background: #eef7f2;
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-weight: 500;
+}
+
+.feature-item i {
+    color: var(--primary-green);
+}
+
+/* --- Footer Alignment --- */
+.footer {
+    padding: 80px 5% 40px;
+    background: white;
+    border-top: 1px solid #eee;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 1fr;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto 40px;
+}
+
+.footer-brand .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--primary-green);
+    font-weight: 800;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.logo-icon {
+    background: var(--primary-green);
+    color: white;
+    padding: 6px;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.footer-team h3, .footer-connect h3 { font-size: 18px; margin-bottom: 20px; }
+.footer-team p { color: var(--text-gray); font-size: 15px; margin-bottom: 8px; }
+
+.social-row { display: flex; gap: 12px; }
+.social-row a {
+    background: #e8f5e9;
+    color: var(--primary-green);
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #eee;
+    padding-top: 25px;
+    color: var(--text-gray);
+    font-size: 14px;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1024px) {
+    .navbar { padding: 15px 5%; }
+    .footer-content { grid-template-columns: 1fr 1fr; }
+    .footer-brand { grid-column: span 2; }
+}
+
+@media (max-width: 768px) {
+    .navbar { flex-direction: column; gap: 15px; padding-bottom: 20px; }
+    .nav-pill-container { width: 100%; justify-content: center; }
+    
+    .section-container { padding: 50px 20px; }
+    .footer-content { grid-template-columns: 1fr; text-align: center; }
+    .footer-brand { grid-column: span 1; }
+    .social-row { justify-content: center; }
+}
