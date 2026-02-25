@@ -5,20 +5,37 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const helmet = require("helmet");
+const morgan = require("morgan");
+const rateLimit = require("express-rate-limit");
+
 const errorHandler = require("./middleware/errorMiddleware");
+const authMiddleware = require("./middleware/authMiddleware");
 
 // Routes
 const authRoutes = require("./routes/authRoutes");
 const plantRoutes = require("./routes/plantRoutes");
 
-// Middleware
-const authMiddleware = require("./middleware/authMiddleware");
-
 const app = express();
 
-// ================= MIDDLEWARE =================
-app.use(cors());
-app.use(express.json());
+// ================= SECURITY MIDDLEWARE =================
+app.use(helmet());              // Security headers
+app.use(cors());                // Enable CORS
+app.use(express.json());        // Parse JSON
+app.use(morgan("dev"));         // Logging
+
+// ================= RATE LIMITER =================
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // 100 requests per IP
+  message: {
+    success: false,
+    message: "Too many requests. Please try again later."
+  }
+});
+
+// Apply limiter globally
+app.use(limiter);
 
 // ================= DATABASE CONNECTION =================
 mongoose.connect(process.env.MONGO_URI)
@@ -32,7 +49,7 @@ mongoose.connect(process.env.MONGO_URI)
 app.use("/api/auth", authRoutes);
 app.use("/api/plants", plantRoutes);
 
-// Protected Test Route
+// ================= PROTECTED ROUTE =================
 app.get("/api/dashboard", authMiddleware, (req, res) => {
   res.json({
     message: "Welcome to protected dashboard",
@@ -40,11 +57,12 @@ app.get("/api/dashboard", authMiddleware, (req, res) => {
   });
 });
 
-// Root Route
+// ================= ROOT ROUTE =================
 app.get("/", (req, res) => {
   res.send("Greenopedia Backend Running 🚀");
 });
 
+// ================= GLOBAL ERROR HANDLER =================
 app.use(errorHandler);
 
 // ================= START SERVER =================
